@@ -1,0 +1,10 @@
+*
+!/**/
+!*.*
+*.exe
+*.o
+.vscode
+.\test.cpp
+CharGen
+example.cpp
+example
