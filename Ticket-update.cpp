@@ -1,6 +1,6 @@
 #include <iostream>
-#include <>//pilih file Ascii.h pada folder klik kanan pilih "Copy Path" kemudian paste pada bagian ini
-#include <>//pilih file termcolor.hpp klik kanan  pilih "Copy Path" kemudian paste pada bagian ini
+#include <D:\ALPROG\.PROJECT\Project Alpro Kelompok 3\ascii-art-main\Ascii.h>//pilih file Ascii.h pada folder klik kanan pilih "Copy Path" kemudian paste pada bagian ini
+#include <D:\ALPROG\.PROJECT\Project Alpro Kelompok 3\termcolor.hpp>//pilih file termcolor.hpp klik kanan  pilih "Copy Path" kemudian paste pada bagian ini
 #include <string>
 #include <iomanip>
 #include <unistd.h> 
@@ -75,8 +75,8 @@ void bookTickets(int choiceMov,int choiceTime,string movie, string time, int tik
             if (seats[choiceMov-1][choiceTime-1][rowIndex][seatIndex] == false) {
                 seats[choiceMov-1][choiceTime-1][rowIndex][seatIndex] = true;
                 booked++;
-                if(indeks == 100){
-                    indeks = 0;
+                if(indeks == 99){
+                    indeks = 1;
                 } 
                 movieArr[indeks]=movie;
                 timeArr[indeks]=time;
