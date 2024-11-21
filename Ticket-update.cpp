@@ -1,6 +1,6 @@
 #include <iostream>
-#include <D:\Project Alpro Kelompok 3\ascii-art-main\Ascii.h>//pilih file Ascii.h pada folder klik kanan pilih "Copy Path" kemudian paste pada bagian ini
-#include <D:\Project Alpro Kelompok 3\termcolor.hpp>//pilih file termcolor.hpp klik kanan  pilih "Copy Path" kemudian paste pada bagian ini
+#include <D:\ALPROG\.PROJECT\Project Alpro Kelompok 3\ascii-art-main\Ascii.h>//pilih file Ascii.h pada folder klik kanan pilih "Copy Path" kemudian paste pada bagian ini
+#include <D:\ALPROG\.PROJECT\Project Alpro Kelompok 3\termcolor.hpp>//pilih file termcolor.hpp klik kanan  pilih "Copy Path" kemudian paste pada bagian ini
 #include <string>
 #include <iomanip>
 #include <unistd.h> 
