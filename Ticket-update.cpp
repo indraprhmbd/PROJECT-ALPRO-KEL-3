@@ -63,7 +63,6 @@ void bookTickets(int choiceMov,int choiceTime,string movie, string time, int tik
         cin >> seat;
 
         nota[i] = seat;
-
         if(seat[0]>90){
             seat[0] = char(seat[0]-32);
             nota[i][0] = char(nota[i][0]-32);
@@ -71,7 +70,7 @@ void bookTickets(int choiceMov,int choiceTime,string movie, string time, int tik
         int rowIndex = seat[0] - 'A';
         int seatIndex = seat[1] - '1';
 
-        if (rowIndex >= 0 && rowIndex < 10 && seatIndex >= 0 && seatIndex < 9) {
+        if (rowIndex >= 0 && rowIndex < 10 && seatIndex >= 0 && seatIndex < 9 && seat.length()==2) {
             if (seats[choiceMov-1][choiceTime-1][rowIndex][seatIndex] == false) {
                 seats[choiceMov-1][choiceTime-1][rowIndex][seatIndex] = true;
                 booked++;
@@ -80,11 +79,11 @@ void bookTickets(int choiceMov,int choiceTime,string movie, string time, int tik
                 } 
                 movieArr[indeks]=movie;
                 timeArr[indeks]=time;
-                seatNum[indeks]=seat;
+                seatNum[indeks]={seat[0],seat[1]};
                 indeks++;
-                cout <<termcolor::green<< "Seat " <<termcolor::yellow<< seat <<termcolor::green<< " booked successfully!\n"<<termcolor::white;
+                cout <<termcolor::green<< "Seat " <<termcolor::yellow<< seat[0]<<seat[1] <<termcolor::green<< " booked successfully!\n"<<termcolor::white;
             } else {
-                cout <<termcolor::red<< "Seat " <<termcolor::yellow<< seat <<termcolor::red<< " is already booked.\n"<<termcolor::white;
+                cout <<termcolor::red<< "Seat " <<termcolor::yellow<< seat[0]<<seat[1] <<termcolor::red<< " is already booked.\n"<<termcolor::white;
                 i--;
             }
         } else {
@@ -108,7 +107,7 @@ void cancelBooking(int choiceMov, int choiceTime) {
         int rowIndex = seat[0] - 'A';
         int seatIndex = seat[1] - '1';
 
-    if (rowIndex >= 0 && rowIndex < 10 && seatIndex >= 0 && seatIndex < 9) {
+    if (rowIndex >= 0 && rowIndex < 10 && seatIndex >= 0 && seatIndex < 9 && seat.length()==2) {
         for(int i = 0; i<totalTicket; i++){
             if (seats[choiceMov-1][choiceTime-1][rowIndex][seatIndex] == true) {
                 if(seat == nota[i]){
@@ -118,7 +117,7 @@ void cancelBooking(int choiceMov, int choiceTime) {
                         // cout << nota[i];
                     }
                     totalTicket--;
-                    cout << termcolor::green<<"Booking for seat "<<termcolor::yellow << seat <<termcolor::green<< " canceled successfully.\n\n"<<termcolor::white;
+                    cout << termcolor::green<<"Booking for seat "<<termcolor::yellow << seat[0]<<seat[1] <<termcolor::green<< " canceled successfully.\n\n"<<termcolor::white;
                 } else {
                     cout <<termcolor::red<< "This seat is not booked, so it cannot be canceled.\n\n"<<termcolor::white;               
                     break;
