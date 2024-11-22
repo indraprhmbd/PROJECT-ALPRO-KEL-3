@@ -6,7 +6,7 @@
 #include <unistd.h> 
 #include <stdlib.h> 
 #include <ctime>
- 
+ //ini push bintang
 time_t timestamp;
 char timeNow[50];
 struct tm * datetime;
