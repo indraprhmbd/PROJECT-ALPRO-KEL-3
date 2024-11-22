@@ -197,8 +197,6 @@ void bookHistory(){
 }
 
 void printTicket(int choiceMov, int choiceTime){
-    //string  movieName[4] = {"The Shawshank Redemption","Avengers: Endgame","Inception","The Godfather"};
-    //string showTime[4] = {"12.15", "14.20", "16.25", "18.30"};
     int payment;
 
     time(&timestamp);
