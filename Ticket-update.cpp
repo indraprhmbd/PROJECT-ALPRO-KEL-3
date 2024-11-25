@@ -113,7 +113,6 @@ void cancelBooking(int choiceMov, int choiceTime) {
                     seats[choiceMov-1][choiceTime-1][rowIndex][seatIndex] = false;
                     for(int j = i; j<totalTicket-1; j++){
                         nota[j] = nota[j+1];
-                        // cout << nota[i];
                     }
                     totalTicket--;
                     cout << termcolor::green<<"Booking for seat "<<termcolor::yellow << seat[0]<<seat[1] <<termcolor::green<< " canceled successfully.\n\n"<<termcolor::white;
