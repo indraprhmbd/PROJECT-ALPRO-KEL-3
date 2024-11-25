@@ -40,7 +40,6 @@ void display(int choiceMov,int choiceTime) {
     cout << "\t\t\t\t  " << termcolor::on_yellow <<  "SCREEN THIS SIDE" << termcolor::on_grey << "\n\n";
     cout << termcolor::green <<"  ----------------------------------------------------------------------------------\n\n" << termcolor::white << termcolor::bold;
     
-    // cout << "\tRow " << char('A' + i) << ": ";
     for (int i = 0; i < 10; i++) {
         for(int j=0;j<9;j++){
             if (seats[choiceMov-1][choiceTime-1][i][j] == false) {
@@ -137,11 +136,8 @@ void cancelBooking(int choiceMov, int choiceTime) {
 
 string movieName[4] = {"The Shawshank Redemption","Avengers: Endgame","Inception","The Godfather"};
 string showTime[4] = {"12.15", "14.20", "16.25", "18.30"};
-// int a=0;
 
 void movChoice(int &choiceMov,string &movie){
-    //string movieName[4] = {"The Shawshank Redemption","Avengers: Endgame","Inception","The Godfather"};
-
     do{
         cout << endl << termcolor::yellow << setw(88) <<setfill('=')<<"\n";
         cout <<setfill(' ')<< "|  NO |"<< setw(46) <<"Movie Title"<< setw(34) <<"|"<<"\n";
@@ -160,8 +156,6 @@ void movChoice(int &choiceMov,string &movie){
     movie= movieName[choiceMov-1];
 }
 void timeChoice(int &choiceTime,string &time){
-    //string showTime[4] = {"12.15", "14.20", "16.25", "18.30"};
-    
     do{
         cout << endl;
         cout << endl << termcolor::yellow << setw(88) <<setfill('=')<<"\n";
@@ -198,7 +192,6 @@ void bookHistory(){
 
 void printTicket(int choiceMov, int choiceTime){
     int payment;
-
     time(&timestamp);
     datetime = localtime(&timestamp);
     system("cls");
@@ -273,7 +266,6 @@ void printTicket(int choiceMov, int choiceTime){
         usleep(150000);
     }
 }
-
 
 int main() {
     void Cinema();
@@ -378,20 +370,4 @@ int main() {
         }      
     }while(menu != 'y' && menu != 'Y');
     return 0;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
