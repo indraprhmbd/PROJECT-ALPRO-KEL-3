@@ -75,7 +75,7 @@ void bookTickets(int choiceMov,int choiceTime,string movie, string time, int tik
                 booked++;
                 if(indeks == 99){
                     indeks = 1;
-                } 
+                }
                 movieArr[indeks]=movie;
                 timeArr[indeks]=time;
                 seatNum[indeks]={seat[0],seat[1]};
