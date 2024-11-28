@@ -1,6 +1,6 @@
 #include <iostream>
-#include <D:\ALPROG\.PROJECT\Project Alpro Kelompok 3\ascii-art-main\Ascii.h>//pilih file Ascii.h pada folder klik kanan pilih "Copy Path" kemudian paste pada bagian ini
-#include <D:\ALPROG\.PROJECT\Project Alpro Kelompok 3\termcolor.hpp>//pilih file termcolor.hpp klik kanan  pilih "Copy Path" kemudian paste pada bagian ini
+#include <D:\Git\ascii-art-main\Ascii.h>//pilih file Ascii.h pada folder klik kanan pilih "Copy Path" kemudian paste pada bagian ini
+#include <D:\Git\termcolor.hpp>//pilih file termcolor.hpp klik kanan  pilih "Copy Path" kemudian paste pada bagian ini
 #include <string>
 #include <iomanip>
 #include <unistd.h> 
@@ -265,108 +265,145 @@ void printTicket(int choiceMov, int choiceTime){
         usleep(150000);
     }
 }
+bool login(bool &verify){
+    int counter=3;
+    while(verify==false && counter>=0){
+    string u,p;
+    string user[5][2]={ {"arsya","062"},
+                        {"bintang","073"},
+                        {"biyan","068"},
+                        {"ryan","067"},
+                        {"jelita","046"}};
+    cout<<"\n===================================";
+    cout<<"\n|              LOGIN              |";
+    cout<<"\n===================================";
+    cout<<"\nUsername : "; cin>>u;
+    cout<<"Password : "; cin>>p;
+    for(int i=0;i<5;i++){
+        if(u==user[i][0] && p==user[i][1]){;
+        cout<<"Login berhasil!\n";
+        verify=true;
+        }else {
+        cout<<"Login salah. Silahkan coba lagi.\n";
+        cout<<"Kesempatan tinggal : "<<counter<<endl;
+        counter--;
+        }
+        break;
+    }
+    
+    }
+    if(counter==-1){
+        cout<<"Kesempatan anda habis.\n";
+    }
+    return verify;
+}
 
 int main() {
-    void Cinema();
-    int choice;
-    char menu='n';
-    int choiceMov=0;
-    int choiceTime=0;
-    Ascii font = Ascii(block);
-    do{
-        totalTicket = 0;
-        nota[90] = {};
-        system("cls");
-        cout <<termcolor::blue;
-        font.print("ITIX");
-        cout <<termcolor::white;
-        cout <<setfill(' ')<< endl << setw(54) <<"I F  T I C K E T S\n";
-        cout <<setfill(' ')<< setw(45) <<"Powered by "<<termcolor::green<<"Kelompok 3\n"<<termcolor::white;
-        
-        cout << endl <<"\tMAIN MENU "<< endl;
-        cout <<"\t========================"<< endl;
-        cout <<"\t1 | Cinema Tickets"<< endl;
-        cout <<"\t2 | Booking History"<< endl;
-        cout <<"\t3 | Quit"<< endl;
-        cout <<"\tChoice : ";cin>>choice;
-
-        if(choice==1){
+    bool verify=false;
+    if(login(verify)){
+        system("pause");
+        void Cinema();
+        int choice;
+        char menu='n';
+        int choiceMov=0;
+        int choiceTime=0;
+        Ascii font = Ascii(block);
+        do{
+            totalTicket = 0;
+            nota[90] = {};
             system("cls");
-            string movie,time;
-            movChoice(choiceMov,movie);
-            timeChoice(choiceTime,time);
-            do {
-                system("cls");
-                display(choiceMov,choiceTime); 
-                cout <<setfill(' ')<<"| "<<choiceMov<<" | "<<movie<< endl;
-                cout <<setfill('-')<< setw(40) <<"\n";    
-                cout <<setfill(' ')<<"| "<<choiceTime<<" | "<<time<< endl;
-                cout << movieArr[0];    
-                cout << "\n\t\t\t\t**** Cinema Tickets *****\n";
-                cout << "\t\t\t\t1. Book tickets\n";
-                cout << "\t\t\t\t2. Cancel Ticket\n";
-                cout << "\t\t\t\t3. Print Ticket\n";
-                cout << "\t\t\t\t4. Back\n";
-                cout << "\t\t\t\tChoice: ";
-                cin >> choice;
+            cout <<termcolor::blue;
+            font.print("ITIX");
+            cout <<termcolor::white;
+            cout <<setfill(' ')<< endl << setw(54) <<"I F  T I C K E T S\n";
+            cout <<setfill(' ')<< setw(45) <<"Powered by "<<termcolor::green<<"Kelompok 3\n"<<termcolor::white;
+            
+            cout << endl <<"\tMAIN MENU "<< endl;
+            cout <<"\t========================"<< endl;
+            cout <<"\t1 | Cinema Tickets"<< endl;
+            cout <<"\t2 | Booking History"<< endl;
+            cout <<"\t3 | Quit"<< endl;
+            cout <<"\tChoice : ";cin>>choice;
 
-                switch (choice) {
-                    case 1:
-                        cout << "\n\nNumber of tiket to book: ";
-                        cin >> tiket;
-                        bookTickets(choiceMov,choiceTime,movie,time,tiket);
-                        cout << endl << endl;
-                        cin.ignore();
-                        cout << "Press Enter to Continue...";
-                        cin.get();   
-                        break;
-                    case 2:
-                        if(totalTicket == 0){
-                            cout << "\nYou havent booked a seat\n";
+            if(choice==1){
+                system("cls");
+                string movie,time;
+                movChoice(choiceMov,movie);
+                timeChoice(choiceTime,time);
+                do {
+                    system("cls");
+                    display(choiceMov,choiceTime); 
+                    cout <<setfill(' ')<<"| "<<choiceMov<<" | "<<movie<< endl;
+                    cout <<setfill('-')<< setw(40) <<"\n";    
+                    cout <<setfill(' ')<<"| "<<choiceTime<<" | "<<time<< endl;
+                    cout << movieArr[0];    
+                    cout << "\n\t\t\t\t**** Cinema Tickets *****\n";
+                    cout << "\t\t\t\t1. Book tickets\n";
+                    cout << "\t\t\t\t2. Cancel Ticket\n";
+                    cout << "\t\t\t\t3. Print Ticket\n";
+                    cout << "\t\t\t\t4. Back\n";
+                    cout << "\t\t\t\tChoice: ";
+                    cin >> choice;
+
+                    switch (choice) {
+                        case 1:
+                            cout << "\n\nNumber of tiket to book: ";
+                            cin >> tiket;
+                            bookTickets(choiceMov,choiceTime,movie,time,tiket);
+                            cout << endl << endl;
                             cin.ignore();
                             cout << "Press Enter to Continue...";
                             cin.get();   
                             break;
-                        }
-                        cancelBooking(choiceMov,choiceTime);
-                        break;
-                    case 3:
-                        if(totalTicket == 0){
-                            cout << "\nYou havent booked a seat\n";
-                            cin.ignore();
-                            cout << "Press Enter to Continue...";
-                            cin.get();   
+                        case 2:
+                            if(totalTicket == 0){
+                                cout << "\nYou havent booked a seat\n";
+                                cin.ignore();
+                                cout << "Press Enter to Continue...";
+                                cin.get();   
+                                break;
+                            }
+                            cancelBooking(choiceMov,choiceTime);
                             break;
-                        }
-                        printTicket(choiceMov,choiceTime);
-                        cout << endl << endl;
-                        cin.ignore();
-                        cout << termcolor::white << "Press Enter to Continue...";
-                        cin.get();   
-                        choice = 4;
-                        break;
-                    case 4: 
-                        if(totalTicket > 0){
-                            choice = 0;
-                            cout << "\nYou Have to print your ticket\n";
+                        case 3:
+                            if(totalTicket == 0){
+                                cout << "\nYou havent booked a seat\n";
+                                cin.ignore();
+                                cout << "Press Enter to Continue...";
+                                cin.get();   
+                                break;
+                            }
+                            printTicket(choiceMov,choiceTime);
+                            cout << endl << endl;
                             cin.ignore();
-                            cout << "Press Enter to Continue...";
+                            cout << termcolor::white << "Press Enter to Continue...";
                             cin.get();   
-                        }
-                        break;
-                    default:
-                        cout <<termcolor::red<< "Invalid choice. Please try again.\n"<<termcolor::white;
-                        break;
-                }
-            } while (choice !=4);
-        } else if(choice==2){
-            bookHistory();
-        } else if(choice==3){
-            cout <<termcolor::red<<"\nwant to exit? (exit then all data will be deleted)"<<termcolor::white<< endl;
-            cout <<"Are you sure you want to quit?(y/n) : ";cin>>menu;
-        } else {
-            cout <<termcolor::red<< "Invalid choice. Please try again.\n"<<termcolor::white;
-        }      
-    }while(menu != 'y' && menu != 'Y');
+                            choice = 4;
+                            break;
+                        case 4: 
+                            if(totalTicket > 0){
+                                choice = 0;
+                                cout << "\nYou Have to print your ticket\n";
+                                cin.ignore();
+                                cout << "Press Enter to Continue...";
+                                cin.get();   
+                            }
+                            break;
+                        default:
+                            cout <<termcolor::red<< "Invalid choice. Please try again.\n"<<termcolor::white;
+                            break;
+                    }
+                } while (choice !=4);
+            } else if(choice==2){
+                bookHistory();
+            } else if(choice==3){
+                cout <<termcolor::red<<"\nwant to exit? (exit then all data will be deleted)"<<termcolor::white<< endl;
+                cout <<"Are you sure you want to quit?(y/n) : ";cin>>menu;
+            } else {
+                cout <<termcolor::red<< "Invalid choice. Please try again.\n"<<termcolor::white;
+            }      
+        }while(menu != 'y' && menu != 'Y');
+    }
+    
     return 0;
 }
