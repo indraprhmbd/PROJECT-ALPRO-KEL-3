@@ -1,12 +1,12 @@
 #include <iostream>
-#include <D:\Git\ascii-art-main\Ascii.h>//pilih file Ascii.h pada folder klik kanan pilih "Copy Path" kemudian paste pada bagian ini
-#include <D:\Git\termcolor.hpp>//pilih file termcolor.hpp klik kanan  pilih "Copy Path" kemudian paste pada bagian ini
+#include <>//pilih file Ascii.h pada folder klik kanan pilih "Copy Path" kemudian paste pada bagian ini
+#include <>//pilih file termcolor.hpp klik kanan  pilih "Copy Path" kemudian paste pada bagian ini
 #include <string>
 #include <iomanip>
 #include <unistd.h> 
 #include <stdlib.h> 
 #include <ctime>
- //ini push bintang
+
 time_t timestamp;
 char timeNow[50];
 struct tm * datetime;
@@ -92,7 +92,6 @@ void bookTickets(int choiceMov,int choiceTime,string movie, string time, int tik
         }
     }
     totalTicket += tiket;
-    // system("cls");
     cout <<termcolor::green<< "\n" << booked << " ticket(s) booked successfully.\n\n"<<termcolor::white;
 }
 
@@ -223,7 +222,7 @@ void printTicket(int choiceMov, int choiceTime){
         } else cout << "Not enough\n";
     } while(true);
 
-    for(int i = 0; i < totalTicket; i++){ //Cetak Youtube
+    for(int i = 0; i < totalTicket; i++){
         cout << endl;
         cout << termcolor::yellow << "\t\t\t" << right << setfill('=') << setw(38) << " ";
         cout << endl;
@@ -407,6 +406,5 @@ int main() {
             }      
         }while(menu != 'y' && menu != 'Y');
     }
-    
     return 0;
 }
