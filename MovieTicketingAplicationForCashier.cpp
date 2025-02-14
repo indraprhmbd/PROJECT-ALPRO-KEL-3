@@ -21,20 +21,8 @@ string nota[90] = {};
 
 string movieArr[100] = {},timeArr[100],seatNum[100];
 
-bool seats[4][4][10][9] ;// Array 4D untuk kursi bioskop dengan 10 baris (A-J) dan 9 kolom
+bool seats[4][4][10][9]={false} ;// Array 4D untuk kursi bioskop dengan 10 baris (A-J) dan 9 kolom
 
-void Cinema() {
-    // Inisialisasi semua kursi menjadi bernilai false
-    for(int i=0;i<4;i++){
-        for (int j = 0; j < 4; j++) {
-            for (int k = 0; k < 10; k++) {
-                for(int l=0;l < 9;l++){
-                    seats[i][j][k][l]=false;
-                }
-            }
-        }
-    }
-}
 
 void display(int choiceMov,int choiceTime) {
     cout << "\n\n";
@@ -304,7 +292,6 @@ int main() {
     system("cls");
     if(login(verify)){
         system("pause");
-        void Cinema();
         int choice;
         char menu='n';
         int choiceMov=0;
